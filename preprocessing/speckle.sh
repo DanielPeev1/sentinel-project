@@ -24,7 +24,7 @@ do
     
     if [ ! -f "${dest_dir}/${date}/${sat}-${pol}.tif" ]; then
       echo "${dest_dir}/${date}/${sat}-${pol}"
-      /Applications/snap/bin/gpt "${xmlFile}" -Pinput="${source_dir}/${file}/${satFile}" -Pspeck_pol="Sigma0_${pol}_db" -PdbPol="Sigma0_${pol}" -Poutput="${dest_dir}/${date}/${sat}-${pol}"
+      /Applications/snap/bin/gpt "${xmlFile}" -Pinput="${source_dir}/${file}/${satFile}"  -Poutput="${dest_dir}/${date}/${sat}-${pol}"
     fi
 
 
