@@ -1,8 +1,10 @@
 #!/bin/bash
 
-
+# A script that can be used for converting values to db and applying speckle filtering
 dest_dir="./speckled/RefinedLee-db"
 source_dir="./speckled/RefinedLee-raw"
+# Determines which filter to apply
+filterXmlFile="./dbConversion.xml"
 
 files=$(ls ${source_dir})
 
@@ -22,7 +24,7 @@ do
     
     if [ ! -f "${dest_dir}/${date}/${sat}-${pol}.tif" ]; then
       echo "${dest_dir}/${date}/${sat}-${pol}"
-      /Applications/snap/bin/gpt ./dbConversion.xml -Pinput="${source_dir}/${file}/${satFile}" -Pspeck_pol="Sigma0_${pol}_db" -PdbPol="Sigma0_${pol}" -Poutput="${dest_dir}/${date}/${sat}-${pol}"
+      /Applications/snap/bin/gpt "${xmlFile}" -Pinput="${source_dir}/${file}/${satFile}" -Pspeck_pol="Sigma0_${pol}_db" -PdbPol="Sigma0_${pol}" -Poutput="${dest_dir}/${date}/${sat}-${pol}"
     fi
 
 

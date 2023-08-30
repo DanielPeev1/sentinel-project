@@ -8,14 +8,23 @@
       <file>$input</file>
       <copyMetadata>true</copyMetadata>
       <bandNames/>
-      <pixelRegion>0,0,525,399</pixelRegion>
+      <pixelRegion>0,0,162,146</pixelRegion>
       <maskNames/>
+    </parameters>
+  </node>
+  <node id="LinearToFromdB">
+    <operator>LinearToFromdB</operator>
+    <sources>
+      <sourceProduct refid="Speckle-Filter"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
     </parameters>
   </node>
   <node id="Speckle-Filter">
     <operator>Speckle-Filter</operator>
     <sources>
-      <sourceProduct refid="LinearToFromdB"/>
+      <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -32,19 +41,10 @@
       <anSize>50</anSize>
     </parameters>
   </node>
-  <node id="LinearToFromdB">
-    <operator>LinearToFromdB</operator>
-    <sources>
-      <sourceProduct refid="Read"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <sourceBands/>
-    </parameters>
-  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Speckle-Filter"/>
+      <sourceProduct refid="LinearToFromdB"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>$output</file>
@@ -54,13 +54,13 @@
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
-            <displayPosition x="37.0" y="134.0"/>
-    </node>
-    <node id="Speckle-Filter">
-      <displayPosition x="320.0" y="137.0"/>
+            <displayPosition x="61.0" y="131.0"/>
     </node>
     <node id="LinearToFromdB">
-      <displayPosition x="142.0" y="136.0"/>
+      <displayPosition x="296.0" y="133.0"/>
+    </node>
+    <node id="Speckle-Filter">
+      <displayPosition x="156.0" y="132.0"/>
     </node>
     <node id="Write">
             <displayPosition x="455.0" y="135.0"/>
